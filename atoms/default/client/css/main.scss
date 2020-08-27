@@ -9,30 +9,37 @@
 //@import "fullscreen";
 
 // Default breakpoints from Frontend
-$mq-breakpoints: (mobile: 320px,
+$mq-breakpoints: (
+  mobile: 320px,
   mobileMedium: 375px,
   mobileLandscape: 480px,
   phablet: 660px,
   tablet: 740px,
   desktop: 980px,
   leftCol: 1140px,
-  wide: 1300px);
-
+  wide: 1300px
+);
 
 @font-face {
   font-family: "GuardianTitlepiece";
-  src: url("https://interactive.guim.co.uk/fonts/garnett/GTGuardianTitlepiece-Bold.woff2") format("woff2"),
-    url("https://interactive.guim.co.uk/fonts/garnett/GTGuardianTitlepiece-Bold.woff") format("woff"),
-    url("https://interactive.guim.co.uk/fonts/garnett/GTGuardianTitlepiece-Bold.ttf") format("truetype");
+  src: url("https://interactive.guim.co.uk/fonts/garnett/GTGuardianTitlepiece-Bold.woff2")
+      format("woff2"),
+    url("https://interactive.guim.co.uk/fonts/garnett/GTGuardianTitlepiece-Bold.woff")
+      format("woff"),
+    url("https://interactive.guim.co.uk/fonts/garnett/GTGuardianTitlepiece-Bold.ttf")
+      format("truetype");
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Guardian Headline Full";
-  src: url("https://interactive.guim.co.uk/fonts/garnett/GHGuardianHeadline-Regular.woff2") format("woff2"),
-    url("https://interactive.guim.co.uk/fonts/garnett/GHGuardianHeadline-Regular.woff") format("woff"),
-    url("https://interactive.guim.co.uk/fonts/garnett/GHGuardianHeadline-Regular.ttf") format("truetype");
+  src: url("https://interactive.guim.co.uk/fonts/garnett/GHGuardianHeadline-Regular.woff2")
+      format("woff2"),
+    url("https://interactive.guim.co.uk/fonts/garnett/GHGuardianHeadline-Regular.woff")
+      format("woff"),
+    url("https://interactive.guim.co.uk/fonts/garnett/GHGuardianHeadline-Regular.ttf")
+      format("truetype");
   font-weight: 400;
   font-style: normal;
 }
@@ -41,12 +48,9 @@ $mq-breakpoints: (mobile: 320px,
   overflow: visible;
 }
 
-
 // var
-$containerName:streaming;
-$backgroundColor:#e7d4b9;
-
-
+$containerName: streaming;
+$backgroundColor: #e7d4b9;
 
 #streaming {
   width: 100%;
@@ -66,14 +70,6 @@ $backgroundColor:#e7d4b9;
   }
 }
 
-
-
-// section##{$containerName} {
-//   .fc-container {
-//     overflow: visible;
-//   }
-// }
-
 #streaming {
   .fc-container {
     overflow: visible;
@@ -84,8 +80,6 @@ $backgroundColor:#e7d4b9;
   overflow: visible;
 }
 
-
-
 .#{$containerName} {
   background-color: $backgroundColor;
   width: 100%;
@@ -93,6 +87,10 @@ $backgroundColor:#e7d4b9;
   display: flex;
   flex-direction: column;
   height: 200px;
+
+  @include mq(mobileMedium) {
+    height: 170px;
+  }
 
   @include mq(mobileLandscape) {
     height: 160px;
@@ -103,7 +101,7 @@ $backgroundColor:#e7d4b9;
   }
 
   @include mq(desktop) {
-    height: 100px
+    height: 100px;
   }
 
   @include mq(leftCol) {
@@ -149,17 +147,8 @@ $backgroundColor:#e7d4b9;
   }
 
   &__right {
-
     &__roundel {
-      // mixin makes roundel sit top right of thrasher and move with grid
       @include roundel-top-right;
-      // width: 40px;
-      // height: 40px;
-
-      // svg {
-      //   width: 100%;
-      //   height: 100%;
-      // }
     }
 
     &__main {
@@ -167,7 +156,8 @@ $backgroundColor:#e7d4b9;
     }
 
     &__cta {
-      font-family: GuardianTitlepiece, "Guardian Headline Full", "Guardian Egyptian Web", Georgia, serif;
+      font-family: GuardianTitlepiece, "Guardian Headline Full",
+        "Guardian Egyptian Web", Georgia, serif;
       font-size: 28px;
       line-height: 115%;
       color: #121212;
@@ -175,36 +165,32 @@ $backgroundColor:#e7d4b9;
       margin-top: -6px;
 
       @include mq(mobileMedium) {
-        font-size: 32px;
+        font-size: 28px;
+        width: 60%;
       }
 
       @include mq(phablet) {
-        font-size: 36px;
         margin-top: -9px;
-        width: 440px;
+        width: 60%;
       }
 
       @include mq(tablet) {
-        width: 500px;
         margin-left: 20px;
       }
 
       @include mq(desktop) {
         margin-top: -12px;
         width: 100%;
+        font-size: 34px;
       }
 
       @include mq(leftCol) {
         margin-left: 0;
         margin-top: 0;
-        font-size: 36px;
       }
 
-      @include mq(wide) {
-        font-size: 40px;
+      &:hover {
       }
-
-      &:hover {}
     }
 
     &__btn {
@@ -212,24 +198,24 @@ $backgroundColor:#e7d4b9;
       position: relative;
       top: 5px;
       line-height: 30px;
-      width: 36px;
-      height: 36px;
+      width: 30px;
+      height: 30px;
       border-radius: 100%;
       background-color: #ffffff;
-      margin-left: 8px;
+      margin-left: 4px;
 
       border-radius: 100%;
       background-color: #ffffff;
 
-      @include mq(leftCol) {
-        width: 36px;
-        height: 36px;
+      @include mq(desktop) {
+        width: 34px;
+        height: 34px;
       }
 
-      @include mq(wide) {
-        width: 40px;
-        height: 40px;
-      }
+      // @include mq(wide) {
+      //   width: 40px;
+      //   height: 40px;
+      // }
 
       svg {
         height: 100%;
@@ -247,14 +233,24 @@ $backgroundColor:#e7d4b9;
       bottom: 0px;
       right: 50px;
       width: auto;
-      height: 90px;
+      height: 100px;
+      @include mq(mobileMedium) {
+        right: 0;
+        height: 140px;
+      }
+
+      @include mq(phablet) {
+        right: 50px;
+        height: 120px;
+      }
 
       @include mq(desktop) {
-        right: 70px
+        right: 50px;
+        height: 120px;
       }
 
       @include mq(leftCol) {
-        right: 70px;
+        right: 60px;
       }
 
       @include mq(wide) {
@@ -263,8 +259,6 @@ $backgroundColor:#e7d4b9;
     }
   }
 }
-
-
 
 .interactive-atom {
   margin: 0;
@@ -294,7 +288,6 @@ $backgroundColor:#e7d4b9;
     &__main {
       text-decoration: none;
     }
-
   }
 
   .interactive-atom {
